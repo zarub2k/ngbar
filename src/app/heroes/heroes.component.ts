@@ -8,6 +8,8 @@ import { Component, OnInit, OnChanges } from '@angular/core';
 export class HeroesComponent implements OnInit, OnChanges {
   constructor() {}
 
+  hero = 'Roger';
+
   ngOnChanges() {
     console.log('Enters heroes.ngOnChanges()');
   }
