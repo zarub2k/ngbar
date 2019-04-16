@@ -16,6 +16,7 @@ export class HeroesComponent implements OnInit, OnChanges {
   };
 
   heroes = HEROES;
+  selectedHero: Hero;
 
   ngOnChanges() {
     console.log('Enters heroes.ngOnChanges()');
@@ -23,5 +24,10 @@ export class HeroesComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     console.log('Enters heroes.ngOnInit()');
+  }
+
+  onSelect(hero: Hero): void {
+    this.selectedHero = hero;
+    console.log(JSON.stringify(hero));
   }
 }
