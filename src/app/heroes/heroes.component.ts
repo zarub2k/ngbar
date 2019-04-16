@@ -1,5 +1,6 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
-import { Hero } from './hero'
+import { Hero } from './hero';
+import { HEROES } from './mock-heroes';
 
 @Component({
   selector: 'app-heroes',
@@ -13,6 +14,8 @@ export class HeroesComponent implements OnInit, OnChanges {
     id: 1,
     name: 'Roger'
   };
+
+  heroes = HEROES;
 
   ngOnChanges() {
     console.log('Enters heroes.ngOnChanges()');
