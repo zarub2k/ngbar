@@ -1,6 +1,6 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
+import { HeroService } from './hero.service';
 import { Hero } from './hero';
-import { HEROES } from './mock-heroes';
 
 @Component({
   selector: 'app-heroes',
@@ -8,14 +8,14 @@ import { HEROES } from './mock-heroes';
   styleUrls: ['./heroes.component.css']
 })
 export class HeroesComponent implements OnInit, OnChanges {
-  constructor() {}
+  constructor(private heroService: HeroService) {}
 
   hero: Hero = {
     id: 1,
     name: 'Roger'
   };
 
-  heroes = HEROES;
+  heroes: Hero[];
   selectedHero: Hero;
 
   ngOnChanges() {
@@ -24,6 +24,11 @@ export class HeroesComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     console.log('Enters heroes.ngOnInit()');
+    this.getHeroes();
+  }
+
+  getHeroes(): void {
+    this.heroes = this.heroService.getHeros();
   }
 
   onSelect(hero: Hero): void {
