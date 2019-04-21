@@ -9,12 +9,17 @@ import { HEROES } from './mock-heroes';
   providedIn: 'root'
 })
 export class HeroService {
+  constructor(private messageService: MessageService) { 
+    this.messageService.add('Enters HeroService.constructor()');
+  }
+
   getHeros(): Observable<Hero[]> {
     this.messageService.add('Enters HeroService.getHeroes()');
     return of(HEROES);
   }
 
-  constructor(private messageService: MessageService) { 
-    this.messageService.add('Enters HeroService.constructor()');
+  getHero(id: number): Observable<Hero> {
+    this.messageService.add('Enters HeroService.getHero()');
+    return of(HEROES.find(hero => hero.id === id));
   }
 }
