@@ -32,8 +32,8 @@ export class HeroesComponent implements OnInit, OnChanges {
       .subscribe(heroes => this.heroes = heroes);
   }
 
-  onSelect(hero: Hero): void {
-    this.selectedHero = hero;
-    console.log(JSON.stringify(hero));
-  }
+  // onSelect(hero: Hero): void {
+  //   this.selectedHero = hero;
+  //   console.log(JSON.stringify(hero));
+  // }
 }
